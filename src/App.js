@@ -1,13 +1,13 @@
+
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from "./Home";
-import Details from "./Details";
-import Profile from "./Profile"
-import { data } from "./Data"
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+
+import Profile from './Profile';
+import Home from './Home';
 class App extends Component {
   render() {
-    // console.log("Data is :" + data.profile.firstName)
+    const { data } = this.props;
     return (
       <Router>
         <div>
@@ -15,21 +15,27 @@ class App extends Component {
             <div>
               <ul className="navbar-nav mr-auto">
                 <li>
-                  <Link to={'/'} className="nav-link">Home</Link>
+                  <Link to={'/'} className="nav-link">
+                    <img
+                      style={{ width: "100%", height: "100%" }}
+                      src={data.site.logoImage}
+                      alt="Main Logo"
+                    ></img>
+                  </Link>
                 </li>
-                <li>
-                  <Link to={'/details'} className="nav-link">Details</Link>
+                <li style={{ position: "absolute", right: "46%" }}>
+                  <h4>Earthquake Zen Garden</h4>
                 </li>
-                <li>
-                  <Link to={'/profile'} className="nav-link">Profile</Link>
+                <li style={{ position: "absolute", right: 0 }}>
+                  <Link to={'/profile'}>Welcome {data.profile.firstName}</Link>
                 </li>
               </ul>
             </div>
           </nav> <br />
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/details' component={Details} />
-            <Route path='/profile' component={Profile} />
+            <Route exact path="/" component={() => (<Redirect to='/home' />)} />
+            <Route path='/home' render={() => <Home data={data.data} />} />
+            <Route path='/profile' render={() => <Profile profile={data.profile} />} />
           </Switch>
         </div>
       </Router>

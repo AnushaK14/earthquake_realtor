@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.profile_table{
+  width: 30%;
+  position: absolute;
+  left: 33%;
+}
+.detail_table{
+  width: 30%;
+  position: absolute;
+  left: 41%;
+}
+.td_css{
+  width: 20%;
+}
+.center_css{
+  text-align: center;
+}
+.home_div{
+  display: flex;
+  justify-content: center;
+}
