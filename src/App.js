@@ -17,16 +17,16 @@ class App extends Component {
                 <li>
                   <Link to={'/'} className="nav-link">
                     <img
-                      style={{ width: "100%", height: "100%" }}
+                      style={{ width: "25%", height: "50%" }}
                       src={data.site.logoImage}
                       alt="Main Logo"
                     ></img>
                   </Link>
                 </li>
-                <li style={{ position: "absolute", right: "46%" }}>
+                <li style={{ position: "absolute", right: "46%",  marginTop: "1%" }}>
                   <h4>Earthquake Zen Garden</h4>
                 </li>
-                <li style={{ position: "absolute", right: 0 }}>
+                <li style={{ position: "absolute", right: "2%" , textDecorationLine: 'underline', marginTop: "1%"}}>
                   <Link to={'/profile'}>Welcome {data.profile.firstName}</Link>
                 </li>
               </ul>

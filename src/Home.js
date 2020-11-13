@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Detail from "./Detail";
 import './index.css';
-// import Link from 'Link';
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +35,7 @@ class Home extends Component {
                                 return (
                                     <tbody key={index}>
                                         <tr key={record.properties.id}><h6>
-                                            <a href="/detail" onClick={(e) => this.handleRecordClick(record, e)}>{record.properties.place}</a>
+                                            <a  style={{ textDecorationLine: 'underline' }} href="/detail" onClick={(e) => this.handleRecordClick(record, e)}>{record.properties.place}</a>
                                         </h6>
                                             <td><h6>{record.properties.mag}</h6></td>
                                             <td><h6>{record.properties.time}</h6></td>
